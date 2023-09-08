@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- title  -->
+  <title>My Alarm Clock</title>
+  <!-- linked stylesheets for the css -->
+  <link rel="stylesheet" href="index.css">
+  <!-- linked the index.js file for the js -->
+  <script src="index.js"></script>
+</head>
+
+<body>
+  <!-- Page Title -->
+  <div class="page-title">
+    <h1>ALARM CLOCK</h1>
+  </div>
+  <section>
+  <!-- display current time -->
+  <div class="container">
+    <div class="current-time-container">
+      <div id="current-time"></div>
+    </div>
+
+    <!-- setalarm for setting the alarms -->
+    <div class="setAlarm">
+      <div class="setAlarm-left">
+        <!-- input tags for setting the time -->
+        <input type="number" min="1" max="12" placeholder="hrs" id="setAlarm-hour">
+        <input type="number" min="0" max="59" placeholder="min" id="setAlarm-min">
+        <input type="number" min="0" max="59" placeholder="sec" id="setAlarm-sec">
+        <!-- select tags for setting the Alarm -->
+        <select id="setAlarm-ampm">
+          <option value="AM/PM" selected hidden>AM/PM</option>
+          <option value="AM">AM</option>
+          <option value="PM">PM</option>
+        </select>
+
+      </div>
+      <!-- buttons for setting the alarm -->
+      <div class="setAlarm-right">
+        <button onclick="setAlarm()">setAlarm</button>
+      </div>
+
+    </div>
+   
+    <div class="setAlarm-delete">
+      <!-- heading for te list items -->
+      <div class="setAlarm-delete-left">
+        <h3 class="alarm-heading">ALARMS</h3>
+      </div>
+
+      <div id="setAlarm-list">
+        <!-- alarm will be displayed here which is taken care in the index.js file  -->
+      </div>
+    </div>
+
+
+
+  </div>
+
+  </section>
+
+</body>
+
+</html>

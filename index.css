@@ -1,0 +1,170 @@
+*{
+    padding:0;
+    margin:0;
+   
+}
+/* body */
+section{
+    background-image: url("https://images.unsplash.com/photo-1549675584-c22bde15df72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8YWxhcm0lMjBjbG9ja3xlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80");
+    background-size: cover;
+    height:100vh;
+    width:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/*page-title*/
+
+.page-title{
+    /* position:absolute;
+    margin-bottom: 450px;
+    left:41%; */
+    color:white;
+    font-family:'Roboto';
+    position:fixed;
+    top:50px;
+   
+    z-index:1;
+    left:50%;
+    transform:translateX(-50%);
+    /* margin-top:15%; */
+}
+/* container for the whole alarm clock */
+.container{
+    border:5px solid white;
+    border-radius:20px;
+    width:40%;
+    margin-top:70px;
+    /* height:600px; */
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* .setAlarm-list{
+    height:500px; 
+    overflow-y: scroll;
+ }
+
+ .setAlarm-list::-webkit-scrollbar{
+    border-radius:50px;
+    width:9px;
+    height:90px;
+    background-color:rgb(185, 185, 252);
+} */
+/* for the current time displayed */
+.current-time-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border:2px solid black; */
+    width:40%;
+    font-size:2.5rem;
+    margin-top:70px;
+    margin-bottom:30px;
+    color:white;
+}
+
+/* for setAlarm */
+.setAlarm{
+    display: flex;
+     justify-content:space-around;
+     /* border:2px solid black; */
+     width:100%;
+     font-size:2.5rem;
+     margin-bottom:30px;
+     color:white;
+}
+.setAlarm-left input{
+  background-color:transparent;
+  font-size:1.5rem;
+  border:none;
+  color:white;
+  border:2px solid white;
+  padding:5px;
+  width:60px;
+
+}
+.setAlarm-left select{
+    font-size:1.5rem;
+    border:none;
+    background-color:transparent;
+    border:2px solid white;
+    color:grey;
+    padding:5px;
+    width:80px;
+}
+.setAlarm-left input:focus{
+    border-color:grey;
+    color:white;
+    border:3px solid grey;
+}
+/* css for the alramlist */
+.alarm-heading{
+  color:white;
+  margin-bottom:40px;
+}
+.setAlarm-right button{
+     font-size:1.4rem;
+     padding:5px;
+     width:100px;
+
+     margin-bottom:10px;
+     background-color:white;
+     border-radius:4px;
+     cursor:pointer;    
+}
+.setAlarm-right button:hover{
+    background-color:grey;
+    color:white;
+     box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+.setAlarm-delete{
+    display: flex;
+    flex-direction:column;
+    justify-content:space-around;
+    width:90%;
+    /* border:2px solid black; */
+}
+.setAlarm-delete-left{
+  font-size:1.5rem;
+  margin-left:90px;
+}
+/* .setAlarm-delete-right{
+    display:flex;
+    justify-content:space-around; 
+    margin-bottom: 10px; 
+    font-size:1.5rem;
+   
+} */
+.parent{
+    display:flex;
+    justify-content:space-between;
+    
+}
+.current-time-alarm-left{
+    color:white;
+}
+.current-time-alarm{
+    font-size:1.5rem;
+}
+.current-time-alarm-right button{
+    font-size:1.1rem;
+    padding:3px;
+    margin-bottom:10px;
+    background-color:white;
+    border-radius:4px;
+    cursor:pointer; 
+}
+.current-time-alarm-right button:hover{
+    background-color:grey;
+    color:white;
+     box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); 
+}
+
+
