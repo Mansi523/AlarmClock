@@ -74,6 +74,7 @@ console.log(">>>",alarmtime);
 const currhours = currtime.getHours();
 const currmins  = currtime.getMinutes();
 const currsecs  = currtime.getSeconds();
+
 // calculate the time in miliseconds.
 const currentmilliseconds = (currhours * 60 * 60 + currmins * 60 + currsecs) * 1000;
 // getting the value of hours,mins and sec in alarmhours,alarmmins and alarmsecs. 
@@ -133,4 +134,4 @@ setAlarmlist.innerHTML+= alarmList.map((item)=>(
 // git commit -m "first commit"
 // git branch -M main
 // git remote add origin https://github.com/Mansi523/AlarmClock.git
-// git push -u origin main
+// git push -u origin main 
