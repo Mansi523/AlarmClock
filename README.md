@@ -55,7 +55,7 @@ This is a simple alarm colck containing all the features metioned above.I had cr
 ## DEMO
 - https://mansi523.github.io/AlarmClock/
 
-<img src="https://ibb.co/gy6JD7M"/>
+<a href="https://ibb.co/gy6JD7M"><img src="https://i.ibb.co/K6mW9Gj/mansi.png" alt="mansi" /></a>
 
 ## Author
 
