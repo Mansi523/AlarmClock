@@ -31,20 +31,37 @@ const setAlarm = ()=>{
   let mins = Number(document.querySelector("#setAlarm-min").value);
   let secs = Number(document.querySelector("#setAlarm-sec").value);
   let ampm = document.querySelector("#setAlarm-ampm").value;
-   
+  // if Input box is empty.
+   if(!hours || !mins || !secs ||!ampm){
+    alert("plz enter the Time!!")
+    return;
+   }
+   if((ampm === "AM" && hours>12)){
+    alert(`it shoud be PM.
+    plz check and enter again!!` )
+    return;
+  }
+  else if((ampm === "PM" && hours<=12)){
+    alert(`it shoud be AM.
+    plz check and enter again!!` )
+   return;
+  }
+
 // negative values for time is taken cared and value for hour should be less than 12. 
-if((hours>12 || hours<1)||
+if((hours>23 || hours<0)||
    (mins>59 || mins<0)||
-   (secs>59 || secs<0)){
+   (secs>59 || secs<0)||(ampm === "AM/PM")){
     alert("plz enter a valid Time");
     console.log(typeof(hours),mins,secs,ampm);
     return;
 }
 
-//converted 12 hours format in pm.
-if(ampm ==="PM"){
-    hours+=12
-}
+
+// //converted 12 hours format in pm.
+// if(ampm ==="PM"){
+//     hours+=12
+// }
+
 //created the new alarm object
 const Alarm ={
   id:Date.now(),  
@@ -66,23 +83,37 @@ HandleDisplay(alarmList);
 // calculate the time until the alarm
 const currtime = new Date();
 console.log("**",currtime);
+let date = "";
+if(hours<currtime.getHours() 
+|| mins<currtime.getMinutes()
+||secs<currtime.getSeconds()
+) 
+{
+  date = currtime.getDate()+1;
+  console.log("date",date);
+    
+}else{
+  date = currtime.getDate();
+}
+
 const alarmtime = new Date(
-    currtime.getFullYear(),currtime.getMonth(),currtime.getDate(),hours,mins,secs
+    currtime.getFullYear(),currtime.getMonth(),date,hours,mins,secs
 );
 console.log(">>>",alarmtime);
 // getting the value of hours,mins and sec in currhours,currmins and currsecs. 
 const currhours = currtime.getHours();
 const currmins  = currtime.getMinutes();
 const currsecs  = currtime.getSeconds();
-
+const currdate  = currtime.getDate();
 // calculate the time in miliseconds.
-const currentmilliseconds = (currhours * 60 * 60 + currmins * 60 + currsecs) * 1000;
+const currentmilliseconds = (currhours * 60 * 60 + currmins * 60 + currsecs+currdate*24*60*60) * 1000;
 // getting the value of hours,mins and sec in alarmhours,alarmmins and alarmsecs. 
 const alarmtimehours = alarmtime.getHours();
 const alarmtimemins = alarmtime.getMinutes();
 const alarmtimesecs = alarmtime.getSeconds();
+const alarmtimedate = alarmtime.getDate();
 // calculate the time in miliseconds.
-const alarmtimemilliseconds = (alarmtimehours * 60 * 60 + alarmtimemins * 60 + alarmtimesecs) * 1000;
+const alarmtimemilliseconds = (alarmtimehours * 60 * 60 + alarmtimemins * 60 + alarmtimesecs+alarmtimedate*24*60*60) * 1000;
 // calculate the time difference in miliseconds.
 
 const alarmring = alarmtimemilliseconds-currentmilliseconds;
@@ -90,7 +121,9 @@ console.log(alarmring);
 // setTimeout function for the alarm.
 Alarm.setime = setTimeout(()=>{
 
-  alert(`Times up!! ${hours}:${mins}:${secs}${ampm}`);
+  alert(`It's ${hours}:${mins}:${secs}${ampm}.
+           press OK to Turn OFF the alarm!!
+  `);
 },alarmring)
 // clear the input field
 document.querySelector("#setAlarm-hour").value="";
@@ -113,19 +146,24 @@ function handleDelete(i){
 const HandleDisplay=(alarmList)=>{
 const setAlarmlist= document.querySelector('#setAlarm-list');
 setAlarmlist.innerHTML="";
-setAlarmlist.innerHTML+= alarmList.map((item)=>(
-  
+setAlarmlist.innerHTML+= alarmList.map((item)=>{
+  const {hours,mins,secs,id,ampm} = item;
+  const hours1 = hours.toString().padStart(2, "0");
+  const mins1 = mins.toString().padStart(2, "0");
+  const secs1 = secs.toString().padStart(2, "0");
+  return(
   `
     <div class="parent">
     <div class="current-time-alarm-left" key=item.id>
-      <div class="current-time-alarm">${item.hours}:${item.mins}:${item.secs} ${item.ampm}</div>
+      <div class="current-time-alarm">${hours1}:${mins1}:${secs1} ${ampm}</div>
     </div>
     <div class="current-time-alarm-right">
-      <button onclick="handleDelete(${item.id})">DELETE</button>
+      <button onclick="handleDelete(${id})">DELETE</button>
     </div>
     </div>
     `
-))
+  )
+})
 }
 
 // echo "# AlarmClock" >> README.md

@@ -18,18 +18,14 @@ section{
 /*page-title*/
 
 .page-title{
-    /* position:absolute;
-    margin-bottom: 450px;
-    left:41%; */
     color:white;
     font-family:'Roboto';
     position:fixed;
-    top:50px;
-   
+    top:80px;
     z-index:1;
     left:50%;
+    font-size:1.2rem;
     transform:translateX(-50%);
-    /* margin-top:15%; */
 }
 /* container for the whole alarm clock */
 .container{
@@ -37,31 +33,30 @@ section{
     border-radius:20px;
     width:40%;
     margin-top:70px;
-    /* height:600px; */
     display:flex;
     flex-direction:column;
     justify-content: center;
     align-items: center;
-
+    
 }
 
-/* .setAlarm-list{
-    height:500px; 
+#setAlarm-list{
+    max-height:300px;
+    width:100%;
+    padding:10px;
     overflow-y: scroll;
  }
 
- .setAlarm-list::-webkit-scrollbar{
-    border-radius:50px;
+ #setAlarm-list::-webkit-scrollbar{
     width:9px;
     height:90px;
     background-color:rgb(185, 185, 252);
-} */
+}
 /* for the current time displayed */
 .current-time-container{
     display: flex;
     justify-content: center;
     align-items: center;
-    /* border:2px solid black; */
     width:40%;
     font-size:2.5rem;
     margin-top:70px;
@@ -73,7 +68,6 @@ section{
 .setAlarm{
     display: flex;
      justify-content:space-around;
-     /* border:2px solid black; */
      width:100%;
      font-size:2.5rem;
      margin-bottom:30px;
@@ -112,7 +106,6 @@ section{
      font-size:1.4rem;
      padding:5px;
      width:100px;
-
      margin-bottom:10px;
      background-color:white;
      border-radius:4px;
@@ -129,19 +122,11 @@ section{
     flex-direction:column;
     justify-content:space-around;
     width:90%;
-    /* border:2px solid black; */
 }
 .setAlarm-delete-left{
   font-size:1.5rem;
   margin-left:90px;
 }
-/* .setAlarm-delete-right{
-    display:flex;
-    justify-content:space-around; 
-    margin-bottom: 10px; 
-    font-size:1.5rem;
-   
-} */
 .parent{
     display:flex;
     justify-content:space-between;
@@ -167,4 +152,68 @@ section{
      box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2); 
 }
 
+/* media queries for different devices */
 
+@media screen and (max-width:1024px) {
+    .page-title{
+        top:70px;
+     font-size:0.8rem;   
+    }
+    .container,.current-time-container{
+        width:60%;
+    }
+    
+}
+
+@media screen and (max-width:748px) {
+    .container,.current-time-container{
+        width:70%;
+    }
+}
+
+@media screen and (max-width:650px) {
+    
+    .container,.current-time-container{
+        width:90%;
+    }
+}
+
+@media screen and (max-width:486px) {
+  
+    .container,.current-time-container{
+        width:95%;
+    }
+}
+
+@media screen and (max-width:452px) {
+  
+    .setAlarm{
+        flex-direction: column;
+    }
+    .setAlarm-left{
+      margin: auto;
+    }
+    .setAlarm-right{
+        margin:auto;
+    }
+}
+@media screen and (max-width:347px) {
+  .page-title{
+    font-size:0.5rem;
+  }
+    .setAlarm-left input{
+        font-size:1.5rem;
+        padding:5px;
+        width:40px;
+      
+      }
+      .setAlarm-left select{
+          font-size:1.5rem;
+          border:none;
+          background-color:transparent;
+          border:2px solid white;
+          color:grey;
+          padding:5px;
+          width:80px;
+      }
+}

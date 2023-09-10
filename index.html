@@ -28,11 +28,11 @@
     <div class="setAlarm">
       <div class="setAlarm-left">
         <!-- input tags for setting the time -->
-        <input type="number" min="1" max="12" placeholder="hrs" id="setAlarm-hour">
-        <input type="number" min="0" max="59" placeholder="min" id="setAlarm-min">
-        <input type="number" min="0" max="59" placeholder="sec" id="setAlarm-sec">
+        <input type="number" min="0" max="23" required placeholder="hrs" id="setAlarm-hour">
+        <input type="number" min="0" max="59" required placeholder="min" id="setAlarm-min">
+        <input type="number" min="0" max="59" required placeholder="sec" id="setAlarm-sec">
         <!-- select tags for setting the Alarm -->
-        <select id="setAlarm-ampm">
+        <select id="setAlarm-ampm" >
           <option value="AM/PM" selected hidden>AM/PM</option>
           <option value="AM">AM</option>
           <option value="PM">PM</option>
